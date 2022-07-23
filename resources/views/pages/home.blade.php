@@ -163,18 +163,23 @@
                         <input type="company" name="company" id="company" class="mt-3 border border-[#F05454] rounded-xl bg-transparent px-4 py-2 h-7 focus:outline-transparent focus:border-2 w-full">
                     </div>
                 </div>
+                <div class="mt-10">
+                    <label for="company" class="font-bold">Your Messages</label>
+                    <br>
+                    <textarea id="w3review" name="w3review" rows="4" cols="50" class="w-full mt-3  border border-[#F05454] rounded-xl bg-transparent px-4 focus:outline-transparent focus:border-2"></textarea>
+                </div>
                 <button type="submit" class="mt-10 bg-[#222831] px-5 py-2 text-[#F05454] rounded-xl hover:text-[#222831] hover:bg-[#F05454] transition-colors">Send Messages</button>
             </form>
         </div>
     </div>
-    <div class="whatsapp mb-40 mt-20">
+    <div class="whatsapp mt-20">
         <div class="bg-[#F05454] w-screen h-32 pt-11">
             <div class="px-20 grid grid-cols-2 gap-5 items-center">
                 <div class="w-[45rem]">
                     <p class="text-[#DDDDDD] text-3xl font-bold inline">Confused about your needs? Consult with us</p>
                 </div>
                 <div class="w-60">
-                    <a href="" class="text-center bg-[#222831] px-5 py-2 ml-[100%] text-[#dddddd] rounded-xl">08993994131</a>
+                    <a href="https://api.whatsapp.com/send/?phone=628993994131&text&type=phone_number&app_absent=0" class="text-center bg-[#222831] px-5 py-2 ml-[100%] text-[#dddddd] rounded-xl">08993994131</a>
                 </div>
             </div>
         </div>

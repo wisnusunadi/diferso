@@ -11,6 +11,8 @@
     @include('layouts.navbar')
     
     @yield('content')
+
+    @include('layouts.footer')
     <script src="{{asset('assets/js/custom.js')}}"></script>
 </body>
 </html>

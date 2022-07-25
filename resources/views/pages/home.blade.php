@@ -4,22 +4,22 @@
 <section class="home">
     <!-- START : BANNER -->
     <div class="video-container h-screen overflow-hidden w-screen">
-        <div class="text-banner pt-32 px-10 md:px-20 absolute z-20">
-            <h1 class="text-[#DDDDDD] text-5xl lg:text-8xl text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
+        <div class="text-banner pt-32 px-10 lg:px-20 absolute z-20">
+            <h1 class="text-[#DDDDDD] text-[14vw] lg:text-8xl text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
             <div class="w-10 h-10 p-2 rounded-full bg-[#F05454] mx-auto mt-16 animate-bounce cursor-pointer">
                 <img src="{{asset('assets/images/down-arrow.png')}}" alt="">
             </div>
         </div>
         <div class="overlay bg-[#222831] w-full h-screen opacity-90 absolute z-10"></div>
-        <video autoplay muted loop class="max-w-[initial] md:max-w-full">
+        <video autoplay muted loop class="max-w-[initial] md:max-w-[280%] lg:max-w-full">
             <source src="{{asset('assets/video/video-home.mp4')}}" type="video/mp4">
         </video>
     </div>
     <!-- END: BANNER -->
 
     <!-- START: About and Services -->
-    <div class="about px-10 md:px-20 py-10">
-        <div class="grid grid-cols-3 gap-10">
+    <div class="about px-10 lg:px-20 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="">
                 <h2 class="text-4xl text-[#222831] font-bold">
                     Diferso <span class="text-[#F05454]">Agency</span>
@@ -41,9 +41,9 @@
     </div>
 
     <!-- Services -->
-    <div class="services px-10 md:px-20 mb-20">
+    <div class="services px-10 lg:px-20 mb-20">
         <h2 class="font-bold mb-5 text-4xl text-right">Our <span class="text-[#F05454]">Services</span></h2>
-        <div class="grid grid-cols-3 gap-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
             <div class="text-center px-10 py-7 bg-[#222831] rounded-lg">
                 <img src="{{asset('assets/images/website-icon.svg')}}" alt="" width="30%" height="auto" class="mx-auto">
                 <h3 class="mt-3 font-bold text-xl text-[#F05454] mb-3">Web Development</h3>
@@ -65,14 +65,14 @@
 
     <!-- START: Portfolio -->
     <div class="portfolio relative">
-        <div class="px-20 z-20 absolute">
+        <div class="px-10 lg:px-20 z-20 absolute">
             <h2 class="z-20 text-4xl font-bold">Our Portfolio</h2>
-            <div class="grid grid-cols-3 gap-10 mt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
                 <div>
                     <img src="{{asset('assets/images/dumy.jpg')}}" alt="" width="100%" height="auto" class="rounded-lg">
                 </div>
                 <div>
-                    <h3 class="font-bold text-[#F05454] text-3xl">Tekenens Studio </h3>
+                    <h3 class="font-bold text-[#222831] lg:text-[#F05454] text-3xl">Tekenens Studio </h3>
                     <div class="desc mt-3">
                         <p>Year : <span class="font-bold">2022</span></p>
                         <p>Project : <span class="font-bold">Website Development</span></p>
@@ -87,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-3 gap-10 mt-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
                 <div></div>
                 <div>
                     <h3 class="font-bold text-[#F05454] text-3xl text-right">Tekenens Studio </h3>
@@ -113,9 +113,11 @@
             <div class="w-48 h-96 bg-[#F05454] z-10 "></div>
         </div>
     </div>
+<!-- END: PORTFOLIO -->
 
-    <div class="contact mt-10">
-        <div class="px-10 md:px-20">
+<!-- START : CONTACT -->
+    <div class="contact mt-[45rem] md:mt-[70rem] lg:mt-10">
+        <div class="px-10 lg:px-20">
             <h2 class="text-4xl font-bold">Our Contact</h2>
             <p class="mt-3 text-[#F05454]">Love to hear for you, Get In Touch with us !</p>
             <form action="" class="mt-5">
@@ -131,7 +133,7 @@
                         <input type="email" name="email" id="email" class="mt-3 border border-[#F05454] rounded-xl bg-transparent px-4 py-2 h-7 focus:outline-transparent focus:border-2 w-full">
                     </div>
                 </div>
-                <div class="grid grid-cols-3 gap-5 mt-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-6">
                     <div>
                         <label for="name" class="font-bold">What's Your Need</label>
                         <br>
@@ -173,13 +175,13 @@
         </div>
     </div>
     <div class="whatsapp mt-20">
-        <div class="bg-[#F05454] w-screen h-32 pt-11">
-            <div class="px-20 grid grid-cols-2 gap-5 items-center">
-                <div class="w-[45rem]">
-                    <p class="text-[#DDDDDD] text-3xl font-bold inline">Confused about your needs? Consult with us</p>
+        <div class="bg-[#F05454] w-screen h-32 pt-3 lg:pt-11">
+            <div class="px-20 grid grid-cols-1 lg:grid-cols-2 gap-5 items-center">
+                <div class="lg:w-[45rem] text-center">
+                    <p class="text-[#DDDDDD] text-xl lg:text-3xl font-bold inline">Confused about your needs? Consult with us</p>
                 </div>
-                <div class="w-60">
-                    <a href="https://api.whatsapp.com/send/?phone=628993994131&text&type=phone_number&app_absent=0" class="text-center bg-[#222831] px-5 py-2 ml-[100%] text-[#dddddd] rounded-xl">08993994131</a>
+                <div class="w-60 text-center">
+                    <a href="https://api.whatsapp.com/send/?phone=628993994131&text&type=phone_number&app_absent=0" class="text-center bg-[#222831] px-5 py-2 ml-3 lg:ml-[100%] text-[#dddddd] rounded-xl">08993994131</a>
                 </div>
             </div>
         </div>

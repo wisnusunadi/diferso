@@ -1,7 +1,7 @@
 <footer class="w-full py-7 bg-[#222831] h-full px-10 md:px-20">
     <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
         <div class="col-span-2 md:col-span-1">
-            <img src="{{asset('assets/images/textdifw.png')}}" alt="Logo Diferso Agency and Software House" width="100%">
+            <img src="{{asset('assets/images/textdifw.png')}}" alt="Logo Diferso Agency and Software House" width="80%" height="100%">
             <p class="text-[#DDDDDD] text-justify text-xs mt-3">Formed to assist you in meeting your needs in website and software development. We work professionally and keep in touch with you as a Client, so that the programs we produce can suit your needs.</p>
         </div>
         <div>

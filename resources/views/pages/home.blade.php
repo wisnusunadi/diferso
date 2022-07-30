@@ -3,12 +3,14 @@
 @section('content')
 <section class="home">
     <!-- START : BANNER -->
-    <div class="video-container h-screen overflow-hidden w-screen">
+    <div class="video-container h-screen overflow-hidden w-screen" id="banner">
         <div class="text-banner pt-32 px-10 lg:px-20 absolute z-20">
             <h1 class="text-[#DDDDDD] text-[14vw] lg:text-8xl text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
-            <div class="w-10 h-10 p-2 rounded-full bg-[#F05454] mx-auto mt-16 animate-bounce cursor-pointer">
-                <img src="{{asset('assets/images/down-arrow.png')}}" alt="">
-            </div>
+            <a href="#about">
+                <div class="w-10 h-10 p-2 rounded-full bg-[#F05454] mx-auto mt-16 animate-bounce cursor-pointer">
+                    <img src="{{asset('assets/images/down-arrow.png')}}" alt="Arrow Down" width="100%" height="100%">
+                </div>
+            </a>
         </div>
         <div class="overlay bg-[#222831] w-full h-screen opacity-90 absolute z-10"></div>
         <video autoplay muted loop class="max-w-[initial] md:max-w-[280%] lg:max-w-full">
@@ -18,7 +20,7 @@
     <!-- END: BANNER -->
 
     <!-- START: About and Services -->
-    <div class="about px-10 lg:px-20 py-10">
+    <div class="about px-10 lg:px-20 py-10" id="about">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="">
                 <h2 class="text-4xl text-[#222831] font-bold">
@@ -64,7 +66,7 @@
     <!-- END: About and Services -->
 
     <!-- START: Portfolio -->
-    <div class="portfolio relative">
+    <div class="portfolio relative" id="portfolio">
         <div class="px-10 lg:px-20 z-20 absolute">
             <h2 class="z-20 text-4xl font-bold">Our Portfolio</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
@@ -78,7 +80,7 @@
                         <p>Project : <span class="font-bold">Website Development</span></p>
                     </div>
                     <div class="qoutes mt-4">
-                       <p class="text-sm">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, nisi. Pariatur qui"</p>
+                       <p class="text-sm">"Pembuatan Website untuk Studio Gambar dan Illustrasi di Surabaya"</p>
                     </div>
                     <div class="button-to mt-6">
                         <a href="https://tekenens.com/" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
@@ -90,13 +92,13 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
                 <div></div>
                 <div>
-                    <h3 class="font-bold text-[#F05454] text-3xl text-right">Tekenens Studio </h3>
+                    <h3 class="font-bold text-[#F05454] text-3xl text-right">ERP</h3>
                     <div class="desc mt-3 text-right">
-                        <p>Year : <span class="font-bold">2022</span></p>
-                        <p>Project : <span class="font-bold">Website Development</span></p>
+                        <p>Year : <span class="font-bold">2021</span></p>
+                        <p>Project : <span class="font-bold">Software Development</span></p>
                     </div>
                     <div class="qoutes mt-4 text-right">
-                       <p class="text-sm">"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, nisi. Pariatur qui"</p>
+                       <p class="text-sm">"Sistem ERP untuk seluruh sektor di perusahaan"</p>
                     </div>
                     <div class="button-to mt-6 text-right">
                         <a href="https://tekenens.com/" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
@@ -116,7 +118,7 @@
 <!-- END: PORTFOLIO -->
 
 <!-- START : CONTACT -->
-    <div class="contact mt-[45rem] md:mt-[70rem] lg:mt-10">
+    <div class="contact mt-[45rem] md:mt-[70rem] lg:mt-10" id="contact">
         <div class="px-10 lg:px-20">
             <h2 class="text-4xl font-bold">Our Contact</h2>
             <p class="mt-3 text-[#F05454]">Love to hear for you, Get In Touch with us !</p>

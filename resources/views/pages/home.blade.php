@@ -122,7 +122,8 @@
         <div class="px-10 lg:px-20">
             <h2 class="text-4xl font-bold">Our Contact</h2>
             <p class="mt-3 text-[#F05454]">Love to hear for you, Get In Touch with us !</p>
-            <form action="" class="mt-5">
+            <form action="{{route('send_offer_mail')}}" method="POST" class="mt-5">
+                @csrf
                 <div class="grid grid-cols-2 gap-5">
                     <div>
                         <label for="name" class="font-bold">Your Name</label>
@@ -152,7 +153,7 @@
                         <label for="email" class="font-bold">Your Budget</label>
                         <br>
                         <div>
-                            <select name="services" id="services" class="mt-3 border border-[#F05454] rounded-xl bg-transparent px-4 h-7 focus:outline-transparent focus:border-2 w-full">
+                            <select name="budgets" id="budgets" class="mt-3 border border-[#F05454] rounded-xl bg-transparent px-4 h-7 focus:outline-transparent focus:border-2 w-full">
                                 <option value="3jt">< Rp.3.000.000</option>
                                 <option value="3-5jt">Rp.3.000.000 - Rp.5.000.000</option>
                                 <option value="5-10jt">Rp.5.000.000 - Rp.10.000.000</option>
@@ -170,7 +171,7 @@
                 <div class="mt-10">
                     <label for="company" class="font-bold">Your Messages</label>
                     <br>
-                    <textarea id="w3review" name="w3review" rows="4" cols="50" class="w-full mt-3  border border-[#F05454] rounded-xl bg-transparent px-4 focus:outline-transparent focus:border-2"></textarea>
+                    <textarea id="w3review" name="messages" rows="4" cols="50" class="w-full mt-3  border border-[#F05454] rounded-xl bg-transparent px-4 focus:outline-transparent focus:border-2"></textarea>
                 </div>
                 <button type="submit" class="mt-10 bg-[#222831] px-5 py-2 text-[#F05454] rounded-xl hover:text-[#222831] hover:bg-[#F05454] transition-colors">Send Messages</button>
             </form>

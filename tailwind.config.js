@@ -13,6 +13,9 @@ module.exports = {
         'primaryOrange' : '#df861d',
         'primaryBrown' : '#aa3d01',
         'primaryGray' : '#bcb6ae',
+      },
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',
       }
     },
   },

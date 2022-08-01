@@ -5,7 +5,7 @@
     <!-- START : BANNER -->
     <div class="video-container h-screen overflow-hidden w-screen" id="banner">
         <div class="text-banner pt-32 px-10 lg:px-20 absolute z-20">
-            <h1 class="text-[#DDDDDD] text-[14vw] lg:text-8xl text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
+            <h1 class="text-[#DDDDDD] text-[14vw] lg:text-[8vw] text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
             <a href="#about">
                 <div class="w-10 h-10 p-2 rounded-full bg-[#F05454] mx-auto mt-16 animate-bounce cursor-pointer">
                     <img src="{{asset('assets/images/down-arrow.png')}}" alt="Arrow Down" width="100%" height="100%">
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <div class="mb-64">
+        <div class="mb-[20%]">
             <div class="w-48 h-96 bg-[#F05454] z-10 "></div>
         </div>
     </div>

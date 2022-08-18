@@ -3,7 +3,7 @@
 @section('content')
 <section class="home">
     <!-- START : BANNER -->
-    <div class="video-container h-screen overflow-hidden w-screen" id="banner">
+    <div class="video-container h-screen overflow-hidden w-screen scroll-mt-14" id="banner">
         <div class="text-banner pt-32 px-10 lg:px-20 absolute z-20">
             <h1 class="text-[#DDDDDD] text-[14vw] lg:text-[8vw] text-center leading-[1.1] font-bold">Create Your Dream <span class="text-[#F05454]"> Website </span> and <span class="text-[#F05454]"> Software </span> with Us</h1>
             <a href="#about">
@@ -20,7 +20,7 @@
     <!-- END: BANNER -->
 
     <!-- START: About and Services -->
-    <div class="about px-10 lg:px-20 py-10" id="about">
+    <div class="about px-10 lg:px-20 py-10 scroll-mt-24" id="about">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="">
                 <h2 class="text-4xl text-[#222831] font-bold">
@@ -66,7 +66,7 @@
     <!-- END: About and Services -->
 
     <!-- START: Portfolio -->
-    <div class="portfolio relative" id="portfolio">
+    <div class="portfolio relative scroll-mt-24" id="portfolio">
         <div class="px-10 lg:px-20 z-20 absolute">
             <h2 class="z-20 text-4xl font-bold">Our Portfolio</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
@@ -118,7 +118,7 @@
 <!-- END: PORTFOLIO -->
 
 <!-- START : CONTACT -->
-    <div class="contact mt-[45rem] md:mt-[70rem] lg:mt-10" id="contact">
+    <div class="contact mt-[45rem] md:mt-[70rem] lg:mt-10 scroll-mt-24" id="contact">
         <div class="px-10 lg:px-20">
             <h2 class="text-4xl font-bold">Our Contact</h2>
             <p class="mt-3 text-[#F05454]">Love to hear for you, Get In Touch with us !</p>

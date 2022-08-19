@@ -19,7 +19,6 @@ class HomeController extends Controller
             'budgets' => ['required'],
             'company' => ['required'],
             'messages' => ['required']
-
         ]);
         if ($validator->fails()) {
             return redirect()->back()->with('error', "Unable to update data, please check your form");

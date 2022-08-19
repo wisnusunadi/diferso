@@ -7,10 +7,10 @@
         <div>
             <p class="font-bold text-2xl text-[#DDDDDD]">Links</p>
             <div class="grid grid-cols-1 gap-3 text-[#DDDDDD] mt-5 text-sm ">
-                <p>Home</p>
-                <p>About</p>
-                <p>Portfolio</p>
-                <p>Contact</p>
+                <a href="#banner">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
         <div>

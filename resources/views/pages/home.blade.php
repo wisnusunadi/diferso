@@ -71,7 +71,7 @@
             <h2 class="z-20 text-4xl font-bold">Our Portfolio</h2>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
                 <div>
-                    <img src="{{asset('assets/images/dumy.jpg')}}" alt="" width="100%" height="auto" class="rounded-lg">
+                    <img src="{{asset('assets/images/tekenens.png')}}" alt="" width="100%" height="auto" class="rounded-lg">
                 </div>
                 <div>
                     <h3 class="font-bold text-[#222831] lg:text-[#F05454] text-3xl">Tekenens Studio </h3>
@@ -83,7 +83,7 @@
                        <p class="text-sm">"Pembuatan Website untuk Studio Gambar dan Illustrasi di Surabaya"</p>
                     </div>
                     <div class="button-to mt-6">
-                        <a href="https://tekenens.com/" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
+                        <a href="https://tekenens.com/" target="_blank" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
                             Go to Project >
                         </a>
                     </div>
@@ -92,22 +92,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
                 <div></div>
                 <div>
-                    <h3 class="font-bold text-[#F05454] text-3xl text-right">ERP</h3>
+                    <h3 class="font-bold text-[#F05454] text-3xl text-right">Cafe Mocca</h3>
                     <div class="desc mt-3 text-right">
-                        <p>Year : <span class="font-bold">2021</span></p>
-                        <p>Project : <span class="font-bold">Software Development</span></p>
+                        <p>Year : <span class="font-bold">2022</span></p>
+                        <p>Project : <span class="font-bold">Prototype Website Development</span></p>
                     </div>
                     <div class="qoutes mt-4 text-right">
-                       <p class="text-sm">"Sistem ERP untuk seluruh sektor di perusahaan"</p>
+                       <p class="text-sm">"Website untuk pemesanan menu pada restoran"</p>
                     </div>
                     <div class="button-to mt-6 text-right">
-                        <a href="https://tekenens.com/" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
+                        <a href="https://cafemoca.diferso-agency.com/"  target="_blank" class="text-sm text-[#F05454] border-b-[#F05454] border-b pb-1 hover:text-black transition-colors hover:border-b-black">
                             < Go to Project
                         </a>
                     </div>
                 </div>
                 <div>
-                    <img src="{{asset('assets/images/dumy.jpg')}}" alt="" width="100%" height="auto" class="rounded-lg">
+                    <img src="{{asset('assets/images/moca.png')}}" alt="" width="100%" height="auto" class="rounded-lg">
                 </div>
             </div>
         </div>

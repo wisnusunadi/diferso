@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diferso Software Hous | Jasa Pembuatan Website</title>
+    <title>Diferso Software House | Jasa Pembuatan Website</title>
     <link rel="stylesheet" href="../css/app.css">
      <!-- Meta Tag -->
 	<meta property="og:type" content="website" />
@@ -30,7 +30,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     @include('layouts.navbar')
-    
+
     @yield('content')
 
     @include('layouts.footer')

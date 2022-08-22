@@ -1,13 +1,13 @@
 <?php
 
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
 //Login Method
-Route::prefix('admin')->group(function () {
-    Route::view('/', 'auth.login')->name('dash_login');
+Route::prefix('dash')->group(function () {
+     Route::get('/', [App\Http\Controllers\DashController::class, 'index'])->name('index');
     Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
     // Route::group(['prefix' => '/forget_pwd'], function () {
     //     Route::view('/show', 'auth.passwords.reset')->name('forget_pwd.show');

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('pages.home');
 });
 Route::post('/send_mail',[App\Http\Controllers\HomeController::class,'send_offer_mail'])->name('send_offer_mail');
-
+Auth::routes();

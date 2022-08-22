@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diferso Software House | Jasa Pembuatan Website</title>
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
      <!-- Meta Tag -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Diferso - Software House and Web Development" />

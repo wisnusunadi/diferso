@@ -9,6 +9,22 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+
     public function send_offer_mail(Request $request){
 
 
@@ -33,7 +49,9 @@ class HomeController extends Controller
             ];
         }
 
-        $send =  Mail::to('gemosiws@gmail.com')->send(new OfferMail($data));
+        $send =  Mail::to('admin@diferso-agency.com')
+        // ->cc(['barto7773@gmail.com','roynald.okta@gmail.com','adzhanilah@gmail.com'])
+       // ->cc(['barto7773@gmail.com'])
+        ->send(new OfferMail($data));
     }
-
 }

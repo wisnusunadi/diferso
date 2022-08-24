@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Portfolio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,15 +26,37 @@ class DashController extends Controller
         $data = Portfolio::all();
         return view('admin.dashboard.portfolio.show',['data'=>$data]);
     }
+    public function show_article()
+    {
+        $data = Article::all();
+        return view('admin.dashboard.article.show',['data'=>$data]);
+    }
+    public function single_article($id)
+    {
+        $data = Article::find($id);
+        return view('admin.dashboard.article.single',['data'=>$data]);
+    }
 
     public function create_port()
     {
         return view('admin.dashboard.portfolio.create');
     }
+
+    public function create_article()
+    {
+        return view('admin.dashboard.article.create');
+    }
+
     public function edit_port($id)
     {
         $data = Portfolio::find($id);
         return view('admin.dashboard.portfolio.edit',['data' => $data]);
+    }
+
+    public function edit_article($id)
+    {
+        $data = Article::find($id);
+        return view('admin.dashboard.article.edit',['data' => $data]);
     }
     public function update_port($id, Request $request)
     {
@@ -99,6 +122,34 @@ class DashController extends Controller
             ]);
             return redirect()->back()->with('success', "Data successfully created");
         }
+    }
+    public function store_article(Request $request)
+    {
+        // $validator = Validator::make($request->all(),[
+        //     'judul' => 'required',
+        //     'tahun' => 'required',
+        //     'jenis' => 'required',
+        //     'deskripsi' => 'required',
+        //     'link' => 'required'
+        // ]);
+
+        if ($request->hasFile('thumbnail')) {
+            $thumbnail = $request->file('thumbnail')->store('images\article','public');
+        } else {
+            $thumbnail = NULL;
+        }
+
+
+        Article::create([
+            'user_id' => '1',
+            'judul' => $request->title,
+            'media' => $thumbnail,
+            'isi' => $request->content,
+            'meta_desc' => $request->meta_desc,
+            'slug' => $request->slug,
+            'status' => $request->status,
+            'created_at' => Carbon::now(),
+        ]);
     }
     public function delete_port(Request $request)
     {

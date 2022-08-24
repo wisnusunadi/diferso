@@ -39,7 +39,7 @@
                         <a class="nav-link menu-title link-nav  {{ (request()->is('dash/portfolio*')) ? 'active' : '' }} " href="{{route('port.show')}}"><i data-feather="home"></i><span>Portfolio</span></a>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Article</span></a>
+                        <a class="nav-link menu-title link-nav {{ (request()->is('dash/article*')) ? 'active' : '' }} " href="{{route('article.show')}}"><i data-feather="home"></i><span>Article</span></a>
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Category</span></a>

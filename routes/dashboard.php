@@ -17,6 +17,13 @@ Route::prefix('dash')->group(function () {
         Route::put('/update/{id}', [App\Http\Controllers\DashController::class, 'update_port'])->name('port.update');
         Route::delete('/delete', [App\Http\Controllers\DashController::class, 'delete_port'])->name('port.delete');
       });
+      Route::group(['prefix' => '/article'], function () {
+        Route::get('/show', [App\Http\Controllers\DashController::class, 'show_article'])->name('article.show');
+        Route::get('/create', [App\Http\Controllers\DashController::class, 'create_article'])->name('article.create');
+        Route::get('/edit/{id}', [App\Http\Controllers\DashController::class, 'edit_article'])->name('article.edit');
+        Route::get('/single/{id}', [App\Http\Controllers\DashController::class, 'single_article'])->name('article_single.create');
+        Route::post('/store', [App\Http\Controllers\DashController::class, 'store_article'])->name('article.store');
+      });
         // Route::group(['prefix' => '/forget_pwd'], function () {
     //     Route::view('/show', 'auth.passwords.reset')->name('forget_pwd.show');
     //     Route::post('/post', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget_pwd.post');

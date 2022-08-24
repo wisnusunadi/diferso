@@ -8,7 +8,7 @@
               {{ $slot ?? ''}}
           </ol>
         </div>
-        <div class="col-lg-6">
+        {{-- <div class="col-lg-6">
           <!-- Bookmark Start-->
           <div class="bookmark">
             <ul>
@@ -27,7 +27,7 @@
             </ul>
           </div>
           <!-- Bookmark Ends-->
-        </div>
+        </div> --}}
       </div>
     </div>
 </div>

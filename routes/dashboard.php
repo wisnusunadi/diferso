@@ -7,9 +7,17 @@ Auth::routes();
 
 //Login Method
 Route::prefix('dash')->group(function () {
-     Route::get('/', [App\Http\Controllers\DashController::class, 'index'])->name('index');
-    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-    // Route::group(['prefix' => '/forget_pwd'], function () {
+      Route::get('/', [App\Http\Controllers\DashController::class, 'index'])->name('index');
+      Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+      Route::group(['prefix' => '/portfolio'], function () {
+        Route::get('/show', [App\Http\Controllers\DashController::class, 'show_port'])->name('port.show');
+        Route::get('/create', [App\Http\Controllers\DashController::class, 'create_port'])->name('port.create');
+        Route::post('/store', [App\Http\Controllers\DashController::class, 'store_port'])->name('port.store');
+        Route::get('/edit/{id}', [App\Http\Controllers\DashController::class, 'edit_port'])->name('port.edit');
+        Route::put('/update/{id}', [App\Http\Controllers\DashController::class, 'update_port'])->name('port.update');
+        Route::delete('/delete', [App\Http\Controllers\DashController::class, 'delete_port'])->name('port.delete');
+      });
+        // Route::group(['prefix' => '/forget_pwd'], function () {
     //     Route::view('/show', 'auth.passwords.reset')->name('forget_pwd.show');
     //     Route::post('/post', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget_pwd.post');
     //     Route::get('/get/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetPasswordForm'])->name('forget_pwd.get');

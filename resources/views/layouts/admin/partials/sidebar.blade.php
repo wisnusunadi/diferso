@@ -28,7 +28,7 @@
                         <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title link-nav  {{ (request()->is('dash*')) ? 'active' : '' }} " href="{{route('index')}}"><i data-feather="home"></i><span>Dashboard</span></a>
+                        <a class="nav-link menu-title link-nav  {{ (request()->is('dash')) ? 'active' : '' }} " href="{{route('index')}}"><i data-feather="home"></i><span>Dashboard</span></a>
                     </li>
                     <li class="sidebar-main-title">
                         <div>
@@ -36,7 +36,7 @@
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Testimoni</span></a>
+                        <a class="nav-link menu-title link-nav  {{ (request()->is('dash/portfolio*')) ? 'active' : '' }} " href="{{route('port.show')}}"><i data-feather="home"></i><span>Portfolio</span></a>
                     </li>
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Article</span></a>

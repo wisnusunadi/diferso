@@ -99,7 +99,7 @@
                                 <div class="blog-details">
                                     <div class="blog-date"><span>{{ \Carbon\Carbon::parse($d->created_at)->format('d') }}</span>{{ \Carbon\Carbon::parse($d->created_at)->format('F Y') }}</div>
                                     <a href="{{$d->slug}}">
-                                        <h6>{{ $d->title }}</h6>
+                                        <h6>{{ $d->judul }}</h6>
                                     </a>
                                     <div class="blog-bottom-content">
                                         <ul class="blog-social">
@@ -107,7 +107,7 @@
                                         </ul>
                                         <hr />
                                         <p class="mt-0">
-                                            {{$d->meta_desc}}
+                                            {{ Str::limit(strip_tags($d->isi), $limit = 50, $end = '...') }}<a href="{{route('article_single',['id' => $d->id])}}"><u>Read more</u></a>
                                         </p>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                             class="fa fa-pencil fa-fw text-light m-auto"></i></a>
                                     </li>
                                     <li class="pt-2">
-                                        <a href="#" class="btn-delete" id="btndelete" data-id="{{$d->id}}"><i
+                                        <a href="#" class="btn-delete" id="btndelete"  onclick="delete_art({{ $d->id }})"><i
                                             class="fa fa-trash fa-fw text-light m-auto"></i></a>
                                     </li>
                                 </ul>
@@ -138,43 +138,13 @@
     </div>
 
     @push('scripts')
-        <script src="{{ asset('assets/js/datatable/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('assets/js/datatable/datatables/datatable.custom.js') }}"></script>
-        <script src="{{ asset('assets/js/sweet-alert/sweetalert.min.js') }}"></script>
-        <script src="{{ asset('assets/js/animation/scroll-reveal/scrollreveal.min.js') }}"></script>
-        <script src="{{ asset('assets/js/modernizr.js') }}"></script>
+    <script src="{{ asset('js/sweet-alert/sweetalert.min.js') }}"></script>
+
         <script>
-            $(function(){
-                if (Modernizr.csstransforms3d) {
-                    window.sr = ScrollReveal();
-                    sr.reveal('.reveal', {
-                        duration: 800,
-                        delay: 400,
-                        reset: true,
-                        easing: 'linear',
-                        scale: 1
-                    });
-                }
-                $(document).on('click', '#btnedit', function(){
-                    var id = $(this).attr('data-id');
+             function delete_art(id){
                     swal({
-                        title: "Edit Article?",
-                        text: "Are you sure you want to edit this Article?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                    .then((willEdit) => {
-                        if (willEdit) {
-                            window.location.href = "/admin/article/edit/"+id;
-                        }
-                    })
-                })
-                $(document).on('click', '#btndelete', function(){
-                    var id = $(this).attr('data-id');
-                    swal({
-                        title: "Delete Article?",
-                        text: "Once deleted, you will not be able to recover Article",
+                        title: "Delete Article ?",
+                        text: "Once deleted, you will not be able to recover Delete Team",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -182,7 +152,7 @@
                     .then((willDelete) => {
                         if (willDelete) {
                             $.ajax({
-                                url: '/admin/article/delete',
+                                url: '/dash/article/delete',
                                 type: 'DELETE',
                                 dataType: 'json',
                                 data: {"id": id, "_method": "DELETE", _token: "{{csrf_token()}}"},
@@ -205,8 +175,7 @@
                             swal("Delete has been cancelled");
                         }
                     })
-                });
-            });
+                }
         </script>
     @endpush
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title')Blog Single @endsection
+@section('title')Article | {{ $data->judul }} @endsection
 
 @push('css')
 @endpush
@@ -8,10 +8,10 @@
 @section('content')
 	@component('components.breadcrumb')
 		@slot('breadcrumb_title')
-			<h3>Blog Single</h3>
+			<h3>{{ $data->judul }}</h3>
 		@endslot
-		<li class="breadcrumb-item">Blog</li>
-		<li class="breadcrumb-item active">Blog Single</li>
+		<li class="breadcrumb-item">Article</li>
+		<li class="breadcrumb-item active">{{ $data->judul }}</li>
 	@endcomponent
 
 	<div class="container-fluid">
@@ -19,15 +19,19 @@
 	        <div class="col-sm-12">
 	            <div class="blog-single">
 	                <div class="blog-box blog-details">
-	                    <div class="banner-wrraper"><img class="img-fluid w-100 bg-img-cover" src="{{asset('assets/images/blog/blog-single.jpg')}}" alt="blog-main" /></div>
+	                    <div class="banner-wrraper"><img class="img-fluid w-100 " src="{{asset('storage/'.$data->media)}}" alt="" /></div>
 	                    <div class="card">
 	                        <div class="card-body">
 	                            <div class="blog-details">
 	                                <ul class="blog-social">
-	                                    <li>25 July 2018</li>
+	                                    <li>{{ \Carbon\Carbon::parse($data->created_at)->format('d M Y') }}</li>
 	                                    <li><i class="icofont icofont-user"></i>Mark <span>Jecno </span></li>
-	                                    <li><i class="icofont icofont-thumbs-up"></i>02<span>Hits</span></li>
-	                                    <li><i class="icofont icofont-ui-chat"></i>598 Comments</li>
+	                                    <li>
+                                            @foreach ($data->Category as $dc)
+                                            {{ $loop->first ? '' : ', ' }}
+                                           {{ $dc->nama }}
+                                            @endforeach
+                                        </li>
 	                                </ul>
 	                                <h4>
 	                                    All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.

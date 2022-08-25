@@ -13,5 +13,4 @@
 <!-- Plugins JS Ends-->
 <!-- Theme js-->
 <script src="{{asset('js/script.js')}}"></script>
-<script src="{{asset('js/theme-customizer/customizer.js')}}"></script>
 <!-- Plugin used-->

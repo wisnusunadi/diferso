@@ -32,7 +32,7 @@
                         <a href="#contact" class="text-sm font-bold bg-[#222831] px-10 py-2 link text-[#F05454] hover:bg-[#DDDDDD] rounded hover:text-[#F05454] transition-colors">Contact</a>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
         <!-- END: Menu Hamburger -->
     </nav>

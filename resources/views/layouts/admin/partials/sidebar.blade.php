@@ -41,17 +41,10 @@
                     <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{ (request()->is('dash/article*')) ? 'active' : '' }} " href="{{route('article.show')}}"><i data-feather="home"></i><span>Article</span></a>
                     </li>
-                    <li class="dropdown">
+                    {{-- <li class="dropdown">
                         <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Category</span></a>
-                    </li>
-                    <li class="sidebar-main-title">
-                        <div>
-                            <h6>Information</h6>
-                        </div>
-                    </li>
-                    <li class="dropdown">
-                        <a class="nav-link menu-title link-nav " href=""><i data-feather="home"></i><span>Email</span></a>
-                    </li>
+                    </li> --}}
+
                    {{--   <li class="dropdown">
                         <a class="nav-link menu-title link-nav {{  Route::is('home.*')  ? 'active' : ''}}" href="{{route('home.show')}}"><i data-feather="home"></i><span>Home</span></a>
                     </li>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\Portfolio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -44,7 +45,8 @@ class DashController extends Controller
 
     public function create_article()
     {
-        return view('admin.dashboard.article.create');
+        $c = Category::all();
+        return view('admin.dashboard.article.create',['c' => $c]);
     }
 
     public function edit_port($id)
@@ -56,7 +58,8 @@ class DashController extends Controller
     public function edit_article($id)
     {
         $data = Article::find($id);
-        return view('admin.dashboard.article.edit',['data' => $data]);
+        $c = Category::all();
+        return view('admin.dashboard.article.edit',['data' => $data,'c' => $c]);
     }
     public function update_port($id, Request $request)
     {
@@ -125,31 +128,88 @@ class DashController extends Controller
     }
     public function store_article(Request $request)
     {
-        // $validator = Validator::make($request->all(),[
-        //     'judul' => 'required',
-        //     'tahun' => 'required',
-        //     'jenis' => 'required',
-        //     'deskripsi' => 'required',
-        //     'link' => 'required'
-        // ]);
 
-        if ($request->hasFile('thumbnail')) {
-            $thumbnail = $request->file('thumbnail')->store('images\article','public');
-        } else {
-            $thumbnail = NULL;
+        $validator = Validator::make($request->all(),[
+            'title' => 'required',
+            'content' => 'required',
+            'status' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->with('error', "Unable to create data, please check your form");
+        }
+        else{
+
+
+        if($request->category_id != null ){
+            if ($request->hasFile('thumbnail')) {
+                $thumbnail = $request->file('thumbnail')->store('images\article','public');
+            } else {
+                $thumbnail = NULL;
+            }
+
+            $article = Article::create([
+                'user_id' => '1',
+                'judul' => $request->title,
+                'media' => $thumbnail,
+                'isi' => $request->content,
+                'meta_desc' => $request->meta_desc,
+                'slug' => $request->slug,
+                'status' => $request->status,
+                'created_at' => Carbon::now(),
+            ]);
+
+            $article->Category()->attach($request->category_id);
+
+            return redirect()->back()->with('success', "Data successfully created");
+        }else{
+            return redirect()->back()->with('error', "Unable to create data, please check your form");
         }
 
 
-        Article::create([
-            'user_id' => '1',
-            'judul' => $request->title,
-            'media' => $thumbnail,
-            'isi' => $request->content,
-            'meta_desc' => $request->meta_desc,
-            'slug' => $request->slug,
-            'status' => $request->status,
-            'created_at' => Carbon::now(),
+        }
+    }
+    public function update_article($id, Request $request)
+    {
+
+        $validator = Validator::make($request->all(),[
+            'title' => 'required',
+            'content' => 'required',
+            'status' => 'required',
         ]);
+
+        if($validator->fails()){
+            return redirect()->back()->with('error', "Unable to update data, please check your form");
+        }
+        else{
+
+        if($request->category_id != null ){
+            $article = Article::find($id);
+            $article->Category()->sync($request->category_id);
+            if ($request->hasFile('thumbnail')) {
+                if ($request->thumbnail != $article->thumbnail) {
+                        Storage::delete("public/".$article->media);
+                    $thumbnail = $request->file('thumbnail')->store('images\article','public');
+                    $article->media = $thumbnail;
+                }
+            }
+
+            $article->judul = $request->title;
+            $article->isi = $request->content;
+            $article->meta_desc = $request->meta_desc;
+            $article->slug = $request->slug;
+            $article->status = $request->status;
+            $article = $article->save();
+
+
+
+            return redirect()->back()->with('success', "Data update successfully");
+        }else{
+            return redirect()->back()->with('error', "Unable to update data, please check your form");
+        }
+
+
+        }
     }
     public function delete_port(Request $request)
     {
@@ -168,6 +228,22 @@ class DashController extends Controller
             return response()->json(['info' => 'success', 'msg' => 'Portfolio successfully deleted']);
         } else {
             return response()->json(['info' => 'error', 'msg' => 'Error on Delete the Portfolio']);
+        }
+    }
+    public function delete_article(Request $request)
+    {
+        $article = Article::find($request->id);
+
+        if ($article->media != '') {
+            Storage::delete("public/".$article->media);
+        }
+
+        $article = $article->delete();
+
+        if ($article) {
+            return response()->json(['info' => 'success', 'msg' => 'Article successfully deleted']);
+        } else {
+            return response()->json(['info' => 'error', 'msg' => 'Error on Delete the Article']);
         }
     }
 }

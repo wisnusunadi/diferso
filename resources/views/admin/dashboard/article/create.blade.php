@@ -46,9 +46,9 @@
                             <label class="col-form-label col-12">Category</label>
                             <div class="col-lg-8 col-md-8 col-sm-12">
                             <select class="js-example-basic-multiple col-sm-12" multiple="multiple" id="category_id" name="category_id[]">
-                                {{-- @foreach($c as $cs)
-                                    <option value="{{$cs->id}}">{{$cs->name}}</option>
-                                @endforeach --}}
+                                @foreach($c as $cs)
+                                    <option value="{{$cs->id}}">{{$cs->nama}}</option>
+                                @endforeach
                             </select>
                             <div id="title_fb" class="invalid-feedback"></div>
                             </div>
@@ -80,8 +80,8 @@
                         <div class="mb-3 row">
                         	<label class="col-form-label col-12">Meta (desc)</label>
                             <div class="col-lg-6 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" id="slug" name="slug" placeholder="Enter Meta (desc)" />
-                                <div id="slug_fb" class="invalid-feedback"></div>
+                                <input class="form-control" type="text" id="meta_desc" name="meta_desc" placeholder="Enter Meta (desc)" />
+                                <div id="meta_desc_fb" class="invalid-feedback"></div>
                             </div>
                         </div>
                         <div class="mb-3 row">
@@ -97,7 +97,7 @@
                             <div id="content_fb" class="invalid-feedback"></div>
                         </div>
                         <div class="mt-4 d-flex justify-content-between">
-                            <button type="button" class="btn btn-danger">Cancel</button>
+                            <a type="button" class="btn btn-danger" href="{{route('article.show')}}">Cancel</a>
                             <button type="submit" class="btn btn-success" id="submit">Submit</button>
                         </div>
 					</form>

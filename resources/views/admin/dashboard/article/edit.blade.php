@@ -11,10 +11,10 @@
 @section('content')
     @component('components.breadcrumb')
         @slot('breadcrumb_title')
-            <h3>Create Article</h3>
+            <h3>Edit Article</h3>
         @endslot
         <li class="breadcrumb-item"><a href="{{route('article.show')}}">Article</a></li>
-        <li class="breadcrumb-item active">Create Article</li>
+        <li class="breadcrumb-item active">Edit Article</li>
     @endcomponent
 
     <div class="container-fluid">
@@ -32,8 +32,9 @@
                       @endif
 				<div class="card">
 					<div class="card-body">
-                    <form class="theme-form mega-form" method="POST" action="{{route('article.store')}}" enctype="multipart/form-data">
+                    <form class="theme-form mega-form" method="POST" action="{{route('article.update',['id' => $data->id])}}" enctype="multipart/form-data">
                     @csrf
+                    {{method_field('PUT')}}
                         <h6>Article Information</h6>
                         <div class="mb-3 row">
                         	<label class="col-form-label col-12">Title</label>
@@ -42,13 +43,14 @@
                                 <div id="title_fb" class="invalid-feedback"></div>
                             </div>
                         </div>
+                        <?php $arr = explode(',', $data->Category->implode('id', ','));?>
                         <div class="mb-3 row">
                             <label class="col-form-label col-12">Category</label>
                             <div class="col-lg-8 col-md-8 col-sm-12">
                             <select class="js-example-basic-multiple col-sm-12" multiple="multiple" id="category_id" name="category_id[]">
-                                {{-- @foreach($c as $cs)
-                                    <option value="{{$cs->id}}">{{$cs->name}}</option>
-                                @endforeach --}}
+                                @foreach($c as $cs)
+                                <option value="{{$cs->id}}"  @if(in_array($cs->id, $arr)) selected @endif>{{$cs->nama}}</option>
+                            @endforeach
                             </select>
                             <div id="title_fb" class="invalid-feedback"></div>
                             </div>
@@ -57,7 +59,7 @@
                         	<label class="col-form-label">Thumbnail</label>
                             <div class="col-lg-6 col-md-8 col-sm-12">
                         	    <input class="form-control" type="file" id="thumbnail" name="thumbnail" placeholder="Choose JPG/PNG File" accept="image/png, image/jpeg, image/jpg"/>
-                                <img id="uploadPreview" style="width:50%; height: auto" class="mt-1"/>
+                                <img id="uploadPreview" style="width:50%; height: auto" src="{{asset('storage/')}}/{{$data->media}}" class="mt-1"/>
                                 <div id="thumbnail_fb" class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -68,11 +70,11 @@
                         	<label class="col-form-label">Status</label>
                             <div class="form-group m-t-15 m-checkbox-inline mb-0 custom-radio-ml">
                                 <div class="radio radio-primary">
-                                    <input id="radioinline1" type="radio" name="status" value="1">
+                                    <input id="radioinline1" type="radio" name="status" value="1" @if($data->status == "1") checked @endif>
                                     <label class="mb-0" for="radioinline1">Available</label>
                                 </div>
                                 <div class="radio radio-primary">
-                                    <input id="radioinline2" type="radio" name="status" value="0" checked>
+                                    <input id="radioinline2" type="radio" name="status" value="0" @if($data->status == "0") checked @endif>
                                     <label class="mb-0" for="radioinline2">Not Available</label>
                                 </div>
                             </div>
@@ -80,14 +82,14 @@
                         <div class="mb-3 row">
                         	<label class="col-form-label col-12">Meta (desc)</label>
                             <div class="col-lg-6 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" id="slug" name="slug" placeholder="Enter Meta (desc)" />
-                                <div id="slug_fb" class="invalid-feedback"></div>
+                                <input class="form-control" type="text" id="meta_desc" name="meta_desc" placeholder="Enter Meta (desc)" value="{{$data->meta_desc}}"/>
+                                <div id="meta_desc_fb" class="invalid-feedback"></div>
                             </div>
                         </div>
                         <div class="mb-3 row">
                         	<label class="col-form-label col-12">Slug (url)</label>
                             <div class="col-lg-6 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" id="slug" name="slug" placeholder="Enter Slug (url)" />
+                                <input class="form-control" type="text" id="slug" name="slug" placeholder="Enter Slug (url)" value="{{$data->slug}}" />
                                 <div id="slug_fb" class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -97,7 +99,7 @@
                             <div id="content_fb" class="invalid-feedback"></div>
                         </div>
                         <div class="mt-4 d-flex justify-content-between">
-                            <button type="button" class="btn btn-danger">Cancel</button>
+                            <a type="button" class="btn btn-danger"  href="{{route('article.show')}}" >Cancel</a>
                             <button type="submit" class="btn btn-success" id="submit">Submit</button>
                         </div>
 					</form>
